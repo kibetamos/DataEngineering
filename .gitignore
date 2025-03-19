@@ -1,0 +1,14 @@
+
+Week1/green_tripdata_2019-10.csv
+
+
+env
+.env
+env/
+.env.
+
+Terraform/.terraform/providers/
+# Ignore Terraform and large files
+Terraform/.terraform/
+*.exe
+*.log
