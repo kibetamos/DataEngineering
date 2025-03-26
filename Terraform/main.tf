@@ -9,14 +9,14 @@ terraform {
 
 provider "google" {
   # Configuration options\
-  
-  project = "third-apex-454116-v1"
+
+  project = var.project
   region  = "us-central1"
 }
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "third-apex-454116-v1-terra-bucket"
-  location      = "US"
+  name          = var.gcs_bucket_name
+  location      = var.location
   force_destroy = true
 
   # lifecycle_rule {
@@ -36,4 +36,10 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+
+resource "google_bigquery_dataset" "demo-dataset" {
+  dataset_id = var.bq_dataset_name
+  location   = var.location
 }
